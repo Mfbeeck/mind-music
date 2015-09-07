@@ -1,0 +1,37 @@
+/*INDEX CSS*/
+#post {
+	list-style-type: none;
+	text-align: center;
+	margin-left: -3vw;
+}
+
+.all_posts {
+	background-color: green;
+}
+
+.all_posts h1 {
+	text-align: center;
+}
+
+.individual_post {
+	background-color: white;
+	border: solid black 2px;
+}
+
+/*SHOW CSS*/
+#show_post {
+	list-style-type: none;
+	text-align: center;
+	margin-left: -3vw; 
+	font-size: 1.5vw;
+}
+
+.post_info {
+	background-color: white;
+	border: solid black 2px;
+}
+
+.post_info h1{
+	text-align: center;
+	font-size: 4vw;
+}

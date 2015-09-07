@@ -1,0 +1,20 @@
+<div class = "all_posts">
+<h1>All Posts</h1>
+
+<% @posts.each do |post| %>
+	<div class = "individual_post">
+		<ul id="post">
+	    <li>
+			<%= link_to post.title, post_path(post), class: 'post_title_link'  %>
+	    </li>
+	    <li>
+			<%= post.body %>
+	    </li>
+	  </ul>
+  </div>
+  <br>
+<% end %>
+
+<%= link_to "Create a New Post", new_post_path, class: "new_post_link" %>
+
+</div>
