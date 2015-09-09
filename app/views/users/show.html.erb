@@ -1,0 +1,19 @@
+<h1>User: <%= @user.username.capitalize %></h1>
+	<div>
+		<li>Email: <%= @user.email%></li>
+		<li>First Name: <%= @user.first_name%></li>
+		<li>Last Name: <%= @user.last_name%></li>
+		<li>
+		Admin: <% if @user.admin%>
+		Yes
+		<%else%>No
+		<%end%>
+		</li>
+		<%= link_to "Edit User", edit_user_path(@user)%>
+		<br>
+	</div>
+<br>
+
+<%= link_to "Back To Users", users_path%>
+<br>
+<%= link_to "<< Back To Home", posts_path %>
