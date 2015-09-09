@@ -1,0 +1,11 @@
+<h1>All Tags</h1>
+
+  <% @tags.each do |tag| %>
+			<ul id="tags">
+		    <li>
+					<%= link_to tag.name.capitalize, tag_path(tag), class: 'post_title_link'  %>
+		    </li>
+		  </ul>
+	  <br>
+  <% end %>
+<%= link_to "Home", posts_path%>

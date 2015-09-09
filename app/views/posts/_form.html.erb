@@ -20,6 +20,17 @@
     <%= f.label :embed %><br/>
     <%= f.text_area :embed %>  
   </p>
+  <p class="image-upload">
+    <% if @post.image.exists? %>
+    <%= image_tag @post.image.url(:medium) %><br/>
+    <% end %>
+    <%= f.label :image, "Attach an image" %><br />
+    <%= f.file_field :image %>
+  </p>
+  <p>
+    <%= f.label :tag_list %><br />
+    <%= f.text_field :tag_list %>
+  </p>
   <p>
     <%= f.submit 'Submit' %>
     <%= button_tag "Reset Fields", type: :reset %>

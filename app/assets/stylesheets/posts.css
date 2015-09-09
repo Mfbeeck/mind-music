@@ -1,7 +1,6 @@
 /*INDEX CSS*/
 #post {
 	list-style-type: none;
-	text-align: center;
 	margin-left: -3vw;
 }
 
@@ -11,11 +10,14 @@
 
 .all_posts h1 {
 	text-align: center;
+	font-size: 3vw;
 }
 
 .individual_post {
 	background-color: white;
 	border: solid black 2px;
+	font-size: 1.5vw;
+	text-align: center;
 }
 
 /*SHOW CSS*/

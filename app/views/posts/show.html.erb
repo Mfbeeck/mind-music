@@ -3,9 +3,33 @@
 		<h1><%= @post.title %></h1>
 			<ul id="show_post">
 		    <li>
+    	  	<% if @post.image.exists?%>
+		    		<%= image_tag @post.image.url(:medium) %>
+		    	<%else%>
+		    		<%= image_tag @post.url %>
+		    	<%end%>
+	    	</li>
+	  		<% if @post.embed.length > 0 %>
+	    	<li>
+		    	<div style = "width: 50%; margin: auto;">
+						<iframe width="100%" height="166" scrolling="no" frameborder="no" src="<%=@post.embed%>"></iframe>
+					</div>
+	    	</li>
+				<%end%>		 
+		    <li>
 					<strong>Description:</strong> <%= @post.body %>
 		    </li>
 		    <br>
+	    	<li>
+					  <strong>Tags: </strong>
+	  			    <% if @post.tags.exists?%>
+							  <% @post.tags.each do |tag| %>
+							  	<%= link_to tag.name, tag_path(tag) %>
+							  <% end %>
+	  					<%else%>
+	  						None
+	  					<%end%>
+				</li>
 		    <li>
 		    	<%= link_to "Edit", edit_post_path(@post) %>
 					<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Really delete the post?"} %>
