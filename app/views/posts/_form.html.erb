@@ -13,11 +13,15 @@
     <%= f.text_area :body %>
   </p>
   <p class="text-upload">
-    <%= f.label :url %><br/>
+    <%= f.label "Picture URL" %><br/>
     <%= f.text_field :url %>  
   </p>
+  <p class="video-upload">
+    <%= f.label "Youtube URL" %><br/>
+    <%= f.text_area :youtube_url %>  
+  </p>
   <p class="song-upload">
-    <%= f.label :embed %><br/>
+    <%= f.label "Soundcloud Embedded URL" %><br/>
     <%= f.text_area :embed %>  
   </p>
   <p class="image-upload">

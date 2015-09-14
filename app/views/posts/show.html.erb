@@ -10,23 +10,29 @@
 			<%end%>
 		</p>
 			<ul id="show_post">
+				<!-- if youtube url exists, show video, if image exists show image, if not then show image through url. Basically there will always be either an image uploaded or a url. If there is an image uploaded, show that one no matter what -->
 		    <li>
-    	  	<% if @post.image.exists?%>
+    	  	<% if @post.youtube_url.length > 0%>
+    	  	<div class="youtube-embed-container">  
+						<%= embed(@post.youtube_url) %>
+					</div>
+		    	<%elsif @post.image.exists?%>
 		    		<%= image_tag @post.image.url(:large) %>
-		    	<%else%>
+		    	<%else%>	
 		    		<%= image_tag @post.url %>
 		    	<%end%>
 	    	</li>
+	    	<!-- Soundcloud embedding -->
 	  		<% if @post.embed.length > 0 %>
-	    	<li>
-		    	<div style = "width: 50%; margin: auto;">
-						<iframe width="100%" height="166" scrolling="no" frameborder="no" src="<%=@post.embed%>"></iframe>
-					</div>
-	    	</li>
+		    	<li>
+			    	<div style = "width: 50%; margin: auto;">
+							<iframe width="100%" height="166" scrolling="no" frameborder="no" src="<%=@post.embed%>"></iframe>
+						</div>
+		    	</li>
 				<%end%>		
 				<br> 
 		    <li class = "show_body_excerpt">
-					<strong>Description:</strong> <%= @post.body %>
+					<strong>Mind:</strong> <%= @post.body %>
 		    </li>
 		    <br>
 		    <li>

@@ -5,7 +5,7 @@
 }
 
 .all_posts {
-	background-color: green;
+	background-color: white;
 }
 
 .all_posts h1 {
@@ -55,4 +55,8 @@
 	text-align: justify;
 	margin:auto;
 	width: 70%;
+}
+
+.paginate_links{
+	text-align: center;
 }

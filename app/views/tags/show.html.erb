@@ -25,7 +25,7 @@
 				<%if post.body.length > 100%>	    		   
 			    <li class = "body_excerpt">
 			    	<br>
-						<%= post.body.truncate_words(50)%><%=link_to "more>>", post_path(post), class: 'post_more_link'%>
+						<%= post.body.truncate_words(50)%><%=link_to "see more", post_path(post), class: 'post_more_link'%>
 			    </li>
 			    <%else%>
 			    <li class = "small_body_excerpt">
@@ -40,7 +40,7 @@
 		  			<% if post.tags.exists?%>
 							on 
 				  		<% post.tags.each do |tag| %>
-				  			<%= link_to tag.name, tag_path(tag) %>
+				  			<%= link_to tag.name, tag_path(tag) %>,
 				  		<% end %>
 						<%end%>
 					<%end%>
@@ -50,6 +50,9 @@
 		</div>
 	  <br>
   <% end %>
+
+<span class = "paginate_links"><%= will_paginate @posts %></span>
+
 
 <!-- Nav links! -->
 <%= link_to "All Tags", tags_path%>

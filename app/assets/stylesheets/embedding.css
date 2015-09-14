@@ -1,0 +1,21 @@
+.youtube-embed-container {
+	position: relative;
+	margin: auto;
+  padding-bottom: 33%;
+  padding-top: 10px;
+  height: 0;
+  width: 60%;
+  height: auto;
+  margin-bottom: 12px;
+  border: none;
+} 
+
+.youtube-embed-container iframe,
+.youtube-embed-container object,
+.youtube-embed-container embed {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
