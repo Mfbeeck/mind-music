@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 	include PostsHelper
 
 	def index
-	  @posts = Post.all
+	  @posts = Post.all.order('created_at DESC')
 	end
 
 	def new
@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(post_params)
+		@post.user_id = current_user.id
 		@post.save
 		redirect_to posts_path
 		flash.notice = "The post \"#{@post.title}\" was successfully created."

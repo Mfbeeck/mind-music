@@ -1,10 +1,18 @@
 <div class = "post_show">
 	<div class = "post_info">
 		<h1><%= @post.title %></h1>
+		<p class = "tags_on_show"><%=@post.created_at.strftime('%b %d, %Y')%>
+			<br>
+			<% if @post.tags.exists?%>
+				<% @post.tags.each do |tag| %>
+					  			<%= link_to '#' + tag.name, tag_path(tag) %>
+	  		<% end %>
+			<%end%>
+		</p>
 			<ul id="show_post">
 		    <li>
     	  	<% if @post.image.exists?%>
-		    		<%= image_tag @post.image.url(:medium) %>
+		    		<%= image_tag @post.image.url(:large) %>
 		    	<%else%>
 		    		<%= image_tag @post.url %>
 		    	<%end%>
@@ -15,21 +23,12 @@
 						<iframe width="100%" height="166" scrolling="no" frameborder="no" src="<%=@post.embed%>"></iframe>
 					</div>
 	    	</li>
-				<%end%>		 
-		    <li>
+				<%end%>		
+				<br> 
+		    <li class = "show_body_excerpt">
 					<strong>Description:</strong> <%= @post.body %>
 		    </li>
 		    <br>
-	    	<li>
-					  <strong>Tags: </strong>
-	  			    <% if @post.tags.exists?%>
-							  <% @post.tags.each do |tag| %>
-							  	<%= link_to tag.name, tag_path(tag) %>
-							  <% end %>
-	  					<%else%>
-	  						None
-	  					<%end%>
-				</li>
 		    <li>
 		    	<%= link_to "Edit", edit_post_path(@post) %>
 					<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Really delete the post?"} %>

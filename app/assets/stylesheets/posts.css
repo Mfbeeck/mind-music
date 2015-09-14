@@ -36,4 +36,23 @@
 .post_info h1{
 	text-align: center;
 	font-size: 4vw;
+	margin-bottom: 0px;
+}
+
+.tags_on_show{
+	text-align: center;
+	font-size: 1.3vw;
+	margin-top: 5px;
+}
+
+.body_excerpt{
+	text-align: justify;
+	margin:auto;
+	width: 60%;
+}
+
+.show_body_excerpt{
+	text-align: justify;
+	margin:auto;
+	width: 70%;
 }
