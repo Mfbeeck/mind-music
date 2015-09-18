@@ -1,18 +1,17 @@
 <div class = "all_posts">
 	<div class = "header">
-		<h1>Posts Tagged with <%= @tag.name %></h1>
+		<h1>Most Popular</h1>
 		<hr>
-	</div>
-
-  <% @posts.each do |post| %>
+	</div>	
+	<% @posts.each do |post| %>
 		<div class = "individual_post">
 			<ul id="post">
 		    <li>
 					<%= link_to post.title, post_path(post), class: 'post-title-link'%>
 		    </li>
 		    <li>
-			    <br>
-	  			<% if !post.youtube_url.nil? && post.youtube_url.length > 0%>
+		    <br>
+	  	  	<% if !post.youtube_url.nil? && post.youtube_url.length > 0%>
 		  	  	<div class="youtube-embed-container">  
 							<%= embed(post.youtube_url) %>
 						</div>
@@ -21,13 +20,13 @@
 		    	<%else%>	
 			    	<%= link_to image_tag(post.url), post_path(post)%>
 		    	<%end%>
-	    	</li>	
+	    	</li>	    
 		  	<% if post.embed.length > 0 %>
-	    	<li>
-		    	<div style = "width: 50%; margin: auto;">
-						<iframe width="100%" height="166" scrolling="no" frameborder="no" src="<%=post.embed%>"></iframe>
-					</div>
-	    	</li>
+		    	<li>
+			    	<div style = "width: 50%; margin: auto;">
+							<iframe width="100%" height="166" scrolling="no" frameborder="no" src="<%=post.embed%>"></iframe>
+						</div>
+		    	</li>
 				<%end%>
 				<%if post.body.length > 100%>	    		   
 			    <li class = "body_excerpt">
@@ -41,48 +40,24 @@
 			    </li>
 		    <%end%>
 		    <br>
-  	    <li>
+		    <li>
 	    		<% if post.user_id %>
 						<%= post.user.first_name.capitalize + ' ' + post.user.last_name.capitalize%> 
 		  			<% if post.tags.exists?%>
 							on 
 				  		<% post.tags.each do |tag| %>
-				  			<%= link_to tag.name, tag_path(tag) %>,
+				  			<%= link_to tag.name, tag_path(tag) %>
 				  		<% end %>
 						<%end%>
 					<%end%>
 					| Posted on: <%=post.created_at.strftime('%b %d, %Y')%>
-	    	</li>
+					<br>
+					Clicks: <%=post.countclicks %>
+		    </li>
+		    <li>
 		  </ul>
-		</div>
+	  </div>
 	  <br>
-  <% end %>
-
-<span class = "paginate_links"><%= will_paginate @posts %></span>
-
-
-<!-- Nav links! -->
-<%= link_to "All Tags", tags_path%>
-	<br>
-<%= link_to "Create a New Post", new_post_path%>
-	<br>
-<% if current_user.admin %>
-	<%= link_to "Users", users_path%>
-<%end%>
-	<br>
-<!-- Creating links to dates -->
-
-<%= link_to "Ruby on Rails search", controller: "posts", query: "Sep"%>
-
-<% array_of_dates = [] %>
-	<% @posts.each do |post| %>
-		<%array_of_dates << post.created_at.strftime('%b %Y')%>
-	<%end%>
-<% array_of_dates = array_of_dates.uniq{|x| x}%>
-<% array_of_dates.reverse.each do |date|%>
-	<%= link_to date, root_path%>
-<%end%>
-<br>	  
-<%= link_to "Back To Home", posts_path%>
-
+	<% end %>
+	<%= link_to "Back", :back%>
 </div>

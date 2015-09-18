@@ -12,10 +12,10 @@
 			<ul id="show_post">
 				<!-- if youtube url exists, show video, if image exists show image, if not then show image through url. Basically there will always be either an image uploaded or a url. If there is an image uploaded, show that one no matter what -->
 		    <li>
-    	  	<% if @post.youtube_url.length > 0%>
-    	  	<div class="youtube-embed-container">  
-						<%= embed(@post.youtube_url) %>
-					</div>
+  	  		<% if !@post.youtube_url.nil? && @post.youtube_url.length > 0%>
+	    	  	<div class="youtube-embed-container">  
+							<%= embed(@post.youtube_url) %>
+						</div>
 		    	<%elsif @post.image.exists?%>
 		    		<%= image_tag @post.image.url(:large) %>
 		    	<%else%>	
@@ -40,6 +40,6 @@
 					<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Really delete the post?"} %>
 				</li>
 		  </ul>
-	  <%= link_to "Back", posts_path%>
+	  <%= link_to "Back", :back%>
   </div>
 </div>

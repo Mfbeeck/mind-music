@@ -1,11 +1,14 @@
-<h1>All Tags</h1>
-
+<h1 style = "text-align: center;">All Tags:</h1>
+<div class = "container" id = "tags-list">
   <% @tags.each do |tag| %>
 			<ul id="tags">
 		    <li>
-					<%= link_to tag.name.capitalize, tag_path(tag), class: 'post_title_link'  %>
+				<%= link_to tag.name.capitalize, tag_path(tag), class: 'post_title_link'  %>
 		    </li>
 		  </ul>
 	  <br>
   <% end %>
+</div>
 <%= link_to "Home", posts_path%>
+
+

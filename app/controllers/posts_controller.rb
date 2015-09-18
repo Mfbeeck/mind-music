@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 	include PostsHelper
 
 	def index
-	  @posts = Post.all.order('created_at DESC').paginate(page: params[:page], per_page: 2)
+	  @posts = Post.all.order('created_at DESC').paginate(page: params[:page], per_page: 5)
 	end
 
 	def new
@@ -15,6 +15,11 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+    @post.increment!(:countclicks) #-> saves the record
+	end
+
+	def popular
+		@posts = Post.all.order('countclicks DESC').first(3)
 	end
 
 	def create
