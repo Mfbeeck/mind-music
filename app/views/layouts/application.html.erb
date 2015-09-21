@@ -8,25 +8,44 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<p class="flash"><%= flash.notice %></p>
+<!-- Nav links -->
+<!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+      <!-- link to most popular posts -->
+    <li><%= link_to "Most Popular", popular_path%></li>
+    <li><%= link_to "Tags", tags_path%></li>
+    <% if current_user.admin %>
+      <li class><%= link_to "See Users", users_path%></li>
+      <li><%= link_to "New Post", new_post_path%></li>
+    <%end%>
+  </ul>
+  <nav class = "navigation">
+    <div class="nav-wrapper">
+      <a href="/posts" class="brand-logo">Mind & Music</a>
+      <ul class="right hide-on-med-and-down">
+        <% if current_user %> 
+            <li><%= link_to current_user.username, user_path(current_user) %></li> 
+            <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
+        <% else %> 
+            <li><%= link_to "Login", 'login' %></a></li> 
+            <li><%= link_to "Signup", 'signup' %></a></li> 
+        <% end %>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+  </nav>
+        
 
-<% if current_user %> 
-  <ul> 
-    <li><%= link_to current_user.username, user_path(current_user) %></li> 
-    <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
-  </ul> 
-<% else %> 
-  <ul> 
-    <li><%= link_to "Login", 'login' %></a></li> 
-    <li><%= link_to "Signup", 'signup' %></a></li> 
-  </ul> 
-<% end %>
+<p class="flash"><%= flash.notice %></p>
 
 <%= yield %>
 
