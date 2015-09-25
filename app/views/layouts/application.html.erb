@@ -21,8 +21,10 @@
   <ul id="dropdown1" class="dropdown-content">
       <!-- link to most popular posts -->
     <li><%= link_to "Most Popular", popular_path%></li>
+    <li><%= link_to "Author's Choice", favorite_path%></li>
+
     <li><%= link_to "Tags", tags_path%></li>
-    <% if current_user.admin %>
+    <% if current_user && current_user.admin %>
       <li class><%= link_to "See Users", users_path%></li>
       <li><%= link_to "New Post", new_post_path%></li>
     <%end%>

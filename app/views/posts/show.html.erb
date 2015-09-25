@@ -35,10 +35,12 @@
 					<strong>Mind:</strong> <%= @post.body %>
 		    </li>
 		    <br>
+		    <% if current_user && current_user.admin %>
 		    <li>
 		    	<%= link_to "Edit", edit_post_path(@post) %>
-					<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Really delete the post?"} %>
-				</li>
+				<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Really delete the post?"} %>
+			</li>
+			<%end%>
 		  </ul>
 	  <%= link_to "Back", :back%>
   </div>

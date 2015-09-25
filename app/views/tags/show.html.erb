@@ -61,18 +61,8 @@
 <span class = "paginate_links"><%= will_paginate @posts %></span>
 
 
-<!-- Nav links! -->
-<%= link_to "All Tags", tags_path%>
-	<br>
-<%= link_to "Create a New Post", new_post_path%>
-	<br>
-<% if current_user.admin %>
-	<%= link_to "Users", users_path%>
-<%end%>
 	<br>
 <!-- Creating links to dates -->
-
-<%= link_to "Ruby on Rails search", controller: "posts", query: "Sep"%>
 
 <% array_of_dates = [] %>
 	<% @posts.each do |post| %>
@@ -82,7 +72,5 @@
 <% array_of_dates.reverse.each do |date|%>
 	<%= link_to date, root_path%>
 <%end%>
-<br>	  
-<%= link_to "Back To Home", posts_path%>
-
+<br>
 </div>

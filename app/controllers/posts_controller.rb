@@ -19,8 +19,13 @@ class PostsController < ApplicationController
 	end
 
 	def popular
-		@posts = Post.all.order('countclicks DESC').first(3)
+		@posts = Post.all.order('countclicks DESC').first(5)
 	end
+
+	def favorite
+		@posts = Post.all.order('rating DESC').first(5)
+	end
+
 
 	def create
 		@post = Post.new(post_params)

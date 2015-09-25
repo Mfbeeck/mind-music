@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users
 
   get 'popular' => 'posts#popular'
+  get 'favorite' => 'posts#favorite'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
