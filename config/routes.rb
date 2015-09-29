@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   
   resources :posts
   resources :tags
+  resources :users
+
   
   #Authentication:
   get 'signup'  => 'users#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  resources :users
 
   get 'popular' => 'posts#popular'
   get 'favorite' => 'posts#favorite'

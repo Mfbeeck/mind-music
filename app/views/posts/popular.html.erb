@@ -1,9 +1,10 @@
 <div class = "all_posts">
 	<div class = "header">
-		<h1>Most Popular</h1>
+		<h1 style = "margin-right: 30px;">Most Popular</h1>
 		<hr>
 	</div>	
 	<% @posts.each do |post| %>
+		<div class = "container">
 		<div class = "individual_post">
 			<ul id="post">
 		    <li>
@@ -43,20 +44,34 @@
 		    <li>
 	    		<% if post.user_id %>
 						<%= post.user.first_name.capitalize + ' ' + post.user.last_name.capitalize%> 
-		  			<% if post.tags.exists?%>
-							on 
-				  		<% post.tags.each do |tag| %>
-				  			<%= link_to tag.name, tag_path(tag) %>
-				  		<% end %>
-						<%end%>
-					<%end%>
-					| Posted on: <%=post.created_at.strftime('%b %d, %Y')%>
-					<br>
-					Clicks: <%=post.countclicks %>
+				<%end%>
+				<% if post.tags.exists?%>
+					on 
+			  		<% post.tags.each do |tag| %>
+		  			<%= link_to tag.name, tag_path(tag) %>
+		  		<% end %>		
+		<%end%>
+			| Posted on: <%=post.created_at.strftime('%b %d, %Y')%>
+			<br>
+			<%if current_user && current_user.admin %>
+			Clicks: <%=post.countclicks %> | Rating: <%=post.rating%>
+			<%end%>
 		    </li>
 		    <li>
 		  </ul>
 	  </div>
+	  </div>
 	  <br>
 	<% end %>
+
+	<!-- Creating links to dates -->
+	<% array_of_dates = [] %>
+		<% @posts.each do |post| %>
+			<%array_of_dates << post.created_at.strftime('%b %Y')%>
+		<%end%>
+	<% array_of_dates = array_of_dates.uniq{|x| x}%>
+	<% array_of_dates.reverse.each do |date|%>
+		<%= link_to date, root_path%>
+	<%end%>	
+	<!-- link to most popular posts -->
 </div>
