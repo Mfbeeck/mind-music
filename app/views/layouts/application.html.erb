@@ -3,7 +3,7 @@
 <head>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mindandmusic</title>
+  <title>Mind & music</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <!-- Compiled and minified CSS -->
@@ -13,6 +13,7 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'http://ipadapps4school.com/wp-content/uploads/2014/12/the-light-bulb-349400_640.png' %>
 </head>
 <body>
 
@@ -40,7 +41,7 @@
   </ul>
   <nav class = "navigation">
     <div class="nav-wrapper">
-      <a href="/posts" class="brand-logo">M & M (Under Construction)</a>
+      <a class= "home-link" href="/posts" class="brand-logo">M & M (Under Construction)</a>
       <ul class="right hide-on-med-and-down">
         <% if current_user %> 
             <li><%= link_to current_user.username, user_path(current_user) %></li> 

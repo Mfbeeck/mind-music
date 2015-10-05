@@ -37,6 +37,10 @@
 	text-decoration: underline;
 }
 
+.post_more_link:hover {
+	opacity: .65;
+}
+
 /*SHOW CSS*/
 #show_post {
 	list-style-type: none;

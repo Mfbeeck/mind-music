@@ -1,14 +1,21 @@
-<h1 style = "text-align: center;">All Tags:</h1>
+<h1 style = "text-align: center; font-size: 4vw;">All Tags:</h1>
 <div class = "container" id = "tags-list">
   <% @tags.each do |tag| %>
-			<ul id="tags">
-		    <li>
-				<%= link_to tag.name.capitalize, tag_path(tag), class: 'post_title_link'  %>
-		    </li>
-		  </ul>
-	  <br>
+	<% tag_frequency = tag.taggings.count %>
+    
+    <% if !$types_of_posts.include?(tag.name) %>
+		<% case tag_frequency%>
+			<%when 0..2%>
+				<%= link_to tag.name.capitalize, tag_path(tag), class: 'small_tag'  %>
+			<%when 3..5%>
+				<%= link_to tag.name.capitalize, tag_path(tag), class: 'medium_tag'  %>
+			<%when 5..1000%>
+				<%= link_to tag.name.capitalize, tag_path(tag), class: 'large_tag'  %>
+		<% end %>
+		&nbsp;
+	<%end%>
+		
   <% end %>
 </div>
-<%= link_to "Home", posts_path%>
 
 

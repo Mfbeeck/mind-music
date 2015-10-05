@@ -18,3 +18,17 @@
 .header h1 {
 	margin-right: 30px;
 }
+
+.home-link {
+	padding: 10px;
+	padding-top: 25px;
+	padding-bottom: 18px;
+	font-size: 2vw;
+
+}
+
+.home-link:hover {
+	background-color: #008AB7;
+    transition: background-color .7s;
+
+}
