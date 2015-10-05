@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+
+.header h1 {
+	margin-right: 30px;
+}

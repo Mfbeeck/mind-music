@@ -4,9 +4,7 @@
 		<p class = "tags_on_show"><%=@post.created_at.strftime('%b %d, %Y')%>
 			<br>
 			<% if @post.tags.exists?%>
-				<% @post.tags.each do |tag| %>
-					  			<%= link_to '#' + tag.name, tag_path(tag) %>
-	  		<% end %>
+					<%= raw @post.tags.map(&:name).map { |t| link_to "#" + t, tag_path(t) }.join(', ') %>
 			<%end%>
 		</p>
 			<ul id="show_post">

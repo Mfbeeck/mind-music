@@ -19,19 +19,28 @@
 <!-- Nav links -->
 <!-- Dropdown Structure -->
   <ul id="dropdown1" class="dropdown-content">
-      <!-- link to most popular posts -->
+    <!-- link to most popular posts (shows the top 5 most clicked on posts)-->
     <li><%= link_to "Most Popular", popular_path%></li>
+    <!-- link to my favorite/most interesting posts (shows the top 5 posts by rating, which I create when I make a post)-->
     <li><%= link_to "Author's Choice", favorite_path%></li>
+    <!-- Setting an array equal to the links I want to have then iterating through tags and creating a link in navbar if the tag name is equal to the strings from array-->
+    <% @tags.each do |tag| %>
+    <% $types_of_posts = ["books", "articles", "videos"] %>
 
-    <li><%= link_to "Tags", tags_path%></li>
+      <% if $types_of_posts.include?(tag.name) %>
+        <li><%= link_to tag.name.capitalize, tag_path(tag), class: 'post_title_link'  %></li>
+      <%end%>
+    <% end %>
+    <li><%= link_to "All Tags", tags_path%></li>
+    
     <% if current_user && current_user.admin %>
       <li class><%= link_to "See Users", users_path%></li>
-      <li><%= link_to "New Post", new_post_path%></li>
+      <li><%= link_to "New Post", new_post_path%></li>  
     <%end%>
   </ul>
   <nav class = "navigation">
     <div class="nav-wrapper">
-      <a href="/posts" class="brand-logo">Mind & Music</a>
+      <a href="/posts" class="brand-logo">M & M (Under Construction)</a>
       <ul class="right hide-on-med-and-down">
         <% if current_user %> 
             <li><%= link_to current_user.username, user_path(current_user) %></li> 
@@ -51,7 +60,17 @@
 
 <%= yield %>
 
-
+<script>
+$('.dropdown-button').dropdown({
+  inDuration: 300,
+  outDuration: 225,
+  constrain_width: true, // Does not change width of dropdown to that of the activator
+  hover: true, // Activate on hover
+  gutter: 0, // Spacing from edge
+  belowOrigin: false // Displays dropdown below the button
+}
+);
+</script>
 
 </body>
 </html>

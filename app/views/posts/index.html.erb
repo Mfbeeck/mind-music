@@ -1,6 +1,6 @@
 <div class = "all_posts">
 	<div class = "header">
-		<h1 style = "margin-right: 30px;">M & M</h1>
+		<h1>Mind & Music</h1>
 		<hr>
 	</div>	
 	<% @posts.each do |post| %>
@@ -8,8 +8,11 @@
 		<div class = "individual_post">
 			<ul id="post">
 		    <li>
-					<%= link_to post.title, post_path(post), class: 'post-title-link'%>
+				<%= link_to post.title, post_path(post), class: 'post-title-link'%>
 		    </li>
+		    <li style = "font-size: 1vw;">
+		    	<%=post.created_at.strftime('%b %d, %Y')%>
+	    	</li>
 		    <li>
 		    <br>
 	  	  	<% if !post.youtube_url.nil? && post.youtube_url.length > 0%>
@@ -47,11 +50,8 @@
 				<%end%>
 				<% if post.tags.exists?%>
 					on 
-			  		<% post.tags.each do |tag| %>
-		  			<%= link_to tag.name, tag_path(tag) %>
-		  		<% end %>		
-		<%end%>
-			| Posted on: <%=post.created_at.strftime('%b %d, %Y')%>
+					<%= raw post.tags.map(&:id).map { |t| link_to Tag.find(t).name, tag_path(t) }.join(', ') %>
+				<%end%>
 			<br>
 			<%if current_user && current_user.admin %>
 			Clicks: <%=post.countclicks %> | Rating: <%=post.rating%>
@@ -67,13 +67,13 @@
 	<span class = "paginate_links"><%= will_paginate @posts %></span>
 
 	<!-- Creating links to dates -->
-	<% array_of_dates = [] %>
-		<% @posts.each do |post| %>
-			<%array_of_dates << post.created_at.strftime('%b %Y')%>
-		<%end%>
-	<% array_of_dates = array_of_dates.uniq{|x| x}%>
-	<% array_of_dates.reverse.each do |date|%>
-		<%= link_to date, root_path%>
-	<%end%>	
+	<%# array_of_dates = [] %>
+		<%# @posts.each do |post| %>
+			<%# array_of_dates << post.created_at.strftime('%b %Y')%>
+		<%#end%>
+	<%# array_of_dates = array_of_dates.uniq{|x| x}%>
+	<%# array_of_dates.reverse.each do |date|%>
+		<%#= link_to date, root_path%>
+	<%#end%>	
 	<!-- link to most popular posts -->
 </div>
