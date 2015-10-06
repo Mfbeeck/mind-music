@@ -35,7 +35,7 @@
 				<%end%>		
 				<br> 
 		    <li class = "show_body_excerpt">
-					<strong>Mind:</strong> <%= @post.body %>
+					<span class = "show_post_body"><%= @post.body %></span>
 		    </li>
 		  <br>
   	  	  <%= link_to "Back", posts_path, id: "back-button", class: "waves-effect waves-light btn"%>

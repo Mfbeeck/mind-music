@@ -102,7 +102,10 @@
 	margin:auto;
 	width: 70%;
 	font-size: 1.3vw;
+}
 
+.show_post_text.one:first-line {
+	font-weight:bold;
 }
 
 .paginate_links{
