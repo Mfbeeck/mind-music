@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
   get 'popular' => 'posts#popular'
   get 'favorite' => 'posts#favorite'
-  
+  get '/about' => 'posts#about'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

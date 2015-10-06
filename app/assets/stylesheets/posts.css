@@ -1,11 +1,12 @@
 /*INDEX CSS*/
 #post {
 	list-style-type: none;
-	margin-left: -3vw;
+	margin-left: -.5vw;
 }
 
 .all_posts {
 	background-color: white;
+	margin-left: -1.3vw;
 }
 
 .all_posts h1 {
@@ -21,6 +22,14 @@
 	border-bottom: solid gray 1px;
 }
 
+.img_index {
+	width: 60%;
+}
+
+#post li {
+	color: black;
+}
+
 .header {
 	width: 80%;
 	font-family: "futura";
@@ -30,11 +39,12 @@
 .post-title-link {
 	text-decoration: none;
 	color: black;
-	font-size: 2vw;
+	font-size: 2.3vw;
+	font-weight: bold;
 }
 
 .post-title-link:hover {
-	text-decoration: underline;
+	opacity: .6;
 }
 
 .post_more_link:hover {
@@ -45,7 +55,6 @@
 #show_post {
 	list-style-type: none;
 	text-align: center;
-	margin-left: -3vw; 
 	font-size: 1.5vw;
 }
 
@@ -57,17 +66,23 @@
 	text-align: center;
 	font-size: 4vw;
 	margin-bottom: 0px;
+	margin-left: -1vw;
 }
 
 .tags_on_show{
 	text-align: center;
 	font-size: 1.3vw;
 	margin-top: 5px;
+	margin-left: -1vw;
 }
 
 .body_excerpt{
 	text-align: justify;
 	margin:auto;
+	width: 80%;
+}
+
+.img_show {
 	width: 60%;
 }
 
@@ -79,4 +94,26 @@
 
 .paginate_links{
 	text-align: center;
+}
+
+#back-button{
+	background-color: #019BE5;
+	margin: auto;
+	font-size: 1.2vw;
+	display: inline-block;
+}
+
+#back-button:hover{
+	opactiy: .3;
+}
+
+#source-button{
+	background-color: #019BE5;
+	margin-auto;
+	font-size: 1.2vw;
+	display: inline-block;
+}
+
+#source-button:hover{
+	opactiy: .3;
 }

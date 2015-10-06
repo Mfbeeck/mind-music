@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  	protect_from_forgery with: :exception
   	before_filter :set_tags
 	helper_method :current_user 
 
@@ -8,8 +8,12 @@ class ApplicationController < ActionController::Base
 	  @current_user ||= User.find(session[:user_id]) if session[:user_id] 
 	end
 
-	def require_user 
-  		redirect_to '/login' unless current_user 
+	def require_user
+		if current_user
+		else 
+  		redirect_to '/posts'
+  		flash.notice = "You are not the admin!"
+  		end
 	end
 
 	# Setting @tags to be available across entire app
@@ -19,9 +23,9 @@ class ApplicationController < ActionController::Base
 
 	#require admin for certain things in controller
 	def require_admin 
-	  	if current_user.admin
+	  	if current_user && current_user.admin
 	  	else
-	  		redirect_to :back
+	  		redirect_to root_path
 			flash.notice = "You are not the admin!"
 		end
 	end    

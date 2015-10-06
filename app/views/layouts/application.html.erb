@@ -20,10 +20,17 @@
 <!-- Nav links -->
 <!-- Dropdown Structure -->
   <ul id="dropdown1" class="dropdown-content">
+    <% if !@home_page%>
+      <li><a class= "home-link" href="/posts">Home</a><li>
+    <% end %>
     <!-- link to most popular posts (shows the top 5 most clicked on posts)-->
-    <li><%= link_to "Most Popular", popular_path%></li>
+    <% if !@popular_page%>
+      <li><%= link_to "Most Popular", popular_path%></li>
+    <% end %>
     <!-- link to my favorite/most interesting posts (shows the top 5 posts by rating, which I create when I make a post)-->
-    <li><%= link_to "Author's Choice", favorite_path%></li>
+    <% if !@favorite_page%>
+      <li><%= link_to "Author's Choice", favorite_path%></li>
+    <% end %>
     <!-- Setting an array equal to the links I want to have then iterating through tags and creating a link in navbar if the tag name is equal to the strings from array-->
     <% @tags.each do |tag| %>
     <% $types_of_posts = ["books", "articles", "videos"] %>
@@ -32,7 +39,10 @@
         <li><%= link_to tag.name.capitalize, tag_path(tag), class: 'post_title_link'  %></li>
       <%end%>
     <% end %>
-    <li><%= link_to "All Tags", tags_path%></li>
+    
+    <% if !@alltags_page %>
+      <li><%= link_to "All Tags", tags_path%></li>
+    <%end%>
     
     <% if current_user && current_user.admin %>
       <li class><%= link_to "See Users", users_path%></li>
@@ -72,6 +82,28 @@ $('.dropdown-button').dropdown({
 }
 );
 </script>
+<br>
+<footer class="page-footer" id = "page-footer-override">
+  <div class="container">
+    <div class="row">
+      <div class="col l8 s12" id = "learnmore-override">
+        <h5 class="white-text">Mind & Music:</h5>
+        <p class="white-text text-lighten-4">This blog was created in order to highlight the author's interests in data and the future of global business and innovation. To complement and enrich these thoughts, the author provides his readers with a variety of carefully chosen music.</p>
+      </div>
+      <div class="col l2 offset-l2 s12">
+        <h5 class="white-text">Learn More</h5>
+        <ul>
+          <li><a class="white-text text-lighten-3" id = "footer-links" href="/about">About Me</a></li>
+          <li><a class="white-text text-lighten-3" id = "footer-links" href="mailto:mfbeek@gmail.com">Contact Me</a></li>
+          <li><a class="white-text text-lighten-3" id = "footer-links" href="https://soundcloud.com/mind-music">Soundcloud</a></li>
 
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright" id = "footer-copyright-override">
+    <span style = "padding-left: 10px;">© 2015 Created by Matias Beeck</span>
+  </div>
+</footer>
 </body>
 </html>

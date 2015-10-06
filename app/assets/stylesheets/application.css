@@ -16,13 +16,12 @@
 
 
 .header h1 {
-	margin-right: 30px;
 }
 
 .home-link {
 	padding: 10px;
 	padding-top: 25px;
-	padding-bottom: 18px;
+	padding-bottom: 16px;
 	font-size: 2vw;
 
 }
@@ -32,3 +31,36 @@
     transition: background-color .7s;
 
 }
+
+.container{
+	color:white;
+}
+
+.col l8 s12{
+	color:white;
+}
+
+#footer-copyright-override {
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px;
+    color: rgba(255,255,255,0.8);
+	background-color: rgba(153, 161, 163, .2);
+}
+
+#page-footer-override {
+	background-color: rgba(194, 199, 200, 1);
+	color: white;
+}
+
+#footer-links:hover{
+	text-decoration: underline;
+}
+
+#learnmore-override {
+	margin-left: -8px;
+}
+
+
+
+

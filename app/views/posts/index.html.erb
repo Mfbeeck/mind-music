@@ -8,7 +8,7 @@
 		<div class = "individual_post">
 			<ul id="post">
 		    <li>
-				<%= link_to post.title, post_path(post), class: 'post-title-link'%>
+				<%= link_to post.title.capitalize, post_path(post), class: 'post-title-link'%>
 		    </li>
 		    <li style = "font-size: 1vw;">
 		    	<%=post.created_at.strftime('%b %d, %Y')%>
@@ -22,7 +22,7 @@
 		    	<%elsif post.image.exists?%>
 			    	<%= link_to image_tag(post.image.url), post_path(post)%>
 		    	<%else%>	
-			    	<%= link_to image_tag(post.url), post_path(post)%>
+			    	<%= link_to image_tag(post.url, class: "img_index"), post_path(post) %>
 		    	<%end%>
 	    	</li>	    
 		  	<% if post.embed.length > 0 %>

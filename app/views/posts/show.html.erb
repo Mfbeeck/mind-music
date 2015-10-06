@@ -1,30 +1,35 @@
 <div class = "post_show">
 	<div class = "post_info">
-		<h1><%= @post.title %></h1>
+		<h1><%= @post.title.capitalize %></h1>
 		<p class = "tags_on_show"><%=@post.created_at.strftime('%b %d, %Y')%>
 			<br>
 			<% if @post.tags.exists?%>
 					<%= raw @post.tags.map(&:name).map { |t| link_to "#" + t, tag_path(t) }.join(', ') %>
 			<%end%>
+			<br>
+		    <% if current_user && current_user.admin %>
+		    	<%= link_to "Edit", edit_post_path(@post) %>
+				<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Really delete the post?"} %>
+			<%end%>
 		</p>
 			<ul id="show_post">
-				<!-- if youtube url exists, show video, if image exists show image, if not then show image through url. Basically there will always be either an image uploaded or a url. If there is an image uploaded, show that one no matter what -->
+			<!-- if youtube url exists, show video, if image exists show image, if not then show image through url. Basically there will always be either an image uploaded or a url. If there is an image uploaded, show that one no matter what -->
 		    <li>
   	  		<% if !@post.youtube_url.nil? && @post.youtube_url.length > 0%>
 	    	  	<div class="youtube-embed-container">  
 							<%= embed(@post.youtube_url) %>
 						</div>
 		    	<%elsif @post.image.exists?%>
-		    		<%= image_tag @post.image.url(:large) %>
+		    		<%= image_tag @post.image.url(:medium) %>
 		    	<%else%>	
-		    		<%= image_tag @post.url %>
+		    		<%= image_tag @post.url, class: "img_show"%>
 		    	<%end%>
 	    	</li>
 	    	<!-- Soundcloud embedding -->
 	  		<% if @post.embed.length > 0 %>
 		    	<li>
 			    	<div style = "width: 50%; margin: auto;">
-							<iframe width="100%" height="166" scrolling="no" frameborder="no" src="<%=@post.embed%>"></iframe>
+							<iframe width="100%" height="140" scrolling="no" frameborder="no" src="<%=@post.embed%>"></iframe>
 						</div>
 		    	</li>
 				<%end%>		
@@ -32,14 +37,13 @@
 		    <li class = "show_body_excerpt">
 					<strong>Mind:</strong> <%= @post.body %>
 		    </li>
-		    <br>
-		    <% if current_user && current_user.admin %>
-		    <li>
-		    	<%= link_to "Edit", edit_post_path(@post) %>
-				<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Really delete the post?"} %>
-			</li>
-			<%end%>
+		  <br>
+  	  	  <%= link_to "Back", posts_path, id: "back-button", class: "waves-effect waves-light btn"%>
+		  <% if !@post.sourceurl.nil? && @post.sourceurl.length > 0 %>
+		  <%= link_to "View Source", @post.sourceurl, id: "source-button", class: "waves-effect waves-light btn"%>
+		  <%end%>
 		  </ul>
-	  <%= link_to "Back", :back%>
   </div>
+  <br>
+  <br>
 </div>

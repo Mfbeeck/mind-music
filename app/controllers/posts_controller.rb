@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
 	include PostsHelper
+	before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
 	def index
 	  @posts = Post.all.order('created_at DESC').paginate(page: params[:page], per_page: 5)
+	  @home_page = true
 	end
 
 	def new
@@ -15,15 +17,17 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
-    @post.increment!(:countclicks) #-> saves the record
+    	@post.increment!(:countclicks) #-> saves the record
 	end
 
 	def popular
 		@posts = Post.all.order('countclicks DESC').first(5)
+		@popular_page = true
 	end
 
 	def favorite
 		@posts = Post.all.order('rating DESC').first(5)
+		@favorite_page = true
 	end
 
 
