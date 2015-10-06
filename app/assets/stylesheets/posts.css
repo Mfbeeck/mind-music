@@ -30,6 +30,11 @@
 	color: black;
 }
 
+#post li a:hover {
+	opacity: .7;
+}
+
+
 .header {
 	width: 80%;
 	font-family: "futura";
@@ -76,10 +81,16 @@
 	margin-left: -1vw;
 }
 
+.tags_on_show a:hover{
+	opacity: .7;
+}
+
+
 .body_excerpt{
 	text-align: justify;
 	margin:auto;
 	width: 80%;
+	font-size: 1.25vw;
 }
 
 .img_show {
@@ -90,6 +101,8 @@
 	text-align: justify;
 	margin:auto;
 	width: 70%;
+	font-size: 1.3vw;
+
 }
 
 .paginate_links{
