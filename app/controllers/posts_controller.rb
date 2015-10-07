@@ -17,7 +17,10 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
-    	@post.increment!(:countclicks) #-> saves the record
+    	if current_user && @post.user_id = current_user.id
+    	else	
+    		@post.increment!(:countclicks) #-> saves the record
+    	end
 	end
 
 	def popular

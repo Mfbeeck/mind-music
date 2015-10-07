@@ -61,6 +61,10 @@
 	margin-left: -8px;
 }
 
+.nav {
+	z-index: 1;
+	background-color: #009BE5;
+}
 
 
 

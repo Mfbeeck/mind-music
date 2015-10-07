@@ -1,19 +1,48 @@
-<h1>User: <%= @user.username.capitalize %></h1>
-	<div>
-		<li>Email: <%= @user.email%></li>
-		<li>First Name: <%= @user.first_name%></li>
-		<li>Last Name: <%= @user.last_name%></li>
+<div class = "container">
+<h1 style = "text-align: center;"><%= @user.first_name.capitalize + " " + @user.last_name.capitalize %></h1>
+	<ul id = "user-info">
+		<li><strong>Username:</strong> <%= @user.username%></li>
+		<li><strong>Email:</strong> <%= @user.email%></li>
+		<li><strong>First Name:</strong> <%= @user.first_name%></li>
+		<li><strong>Last Name:</strong> <%= @user.last_name%></li>
 		<li>
-		Admin: <% if @user.admin%>
+		<strong>Admin:</strong> <% if @user.admin%>
 		Yes
 		<%else%>No
 		<%end%>
 		</li>
-		<%= link_to "Edit User", edit_user_path(@user)%>
+		<%= link_to "Edit", edit_user_path(@user)%>
 		<br>
-	</div>
-<br>
+	</ul>
+	<h4 style = "color:black">Your Posts:</h4>
+	<table class="click-table">
+	  <tr>
+	    <td style = "font-size: 1.5vw;"><strong>Post Title</strong></td>
+	    <td style = "font-size: 1.5vw; text-align: center"><strong>Views</strong></td>
+	    <td style = "font-size: 1.5vw; text-align: center"><strong>Type</strong></td>	    
+	    <td style = "font-size: 1.5vw; text-align: center"><strong>Date Posted</strong></td> 
+	    <td style = "font-size: 1.5vw; text-align: center"><strong>Last Updated</strong></td> 
+ 
 
-<%= link_to "Back To Users", users_path%>
-<br>
-<%= link_to "<< Back To Home", posts_path %>
+	  </tr>
+	  <% @posts.each do |post| %>
+	  <tr>
+	    <td><%= link_to post.title.capitalize, post_path(post)%></td>
+	    <td style = "text-align: center"><%=post.countclicks%></td>
+	    <% if post.embed.length > 0 %>
+	    	<td style = "width: 15%; text-align: center">Music</td>
+    	<% else %>
+	    	<td style = "width: 15%; text-align: center">Mind</td>
+	    <%end%>   	
+	    <td style = "text-align: center"><%=post.created_at.strftime('%b %d, %Y')%></td> 	    
+	    <td style = "text-align: center"><%=post.updated_at.strftime('%b %d, %Y')%></td> 	    
+ 
+
+	  </tr>
+	  <%end%>
+	</table>
+	<ul id = "user-info">
+		<%= link_to "See Users", users_path%>
+		<br>
+	</ul>
+</div>

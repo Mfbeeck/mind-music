@@ -43,9 +43,10 @@
 
 .post-title-link {
 	text-decoration: none;
-	color: black;
-	font-size: 2.3vw;
-	font-weight: bold;
+	color: #0099E8;
+	font-size: 2.8vw;
+	font-family: "Futura";
+	font-weight: normal;
 }
 
 .post-title-link:hover {
@@ -65,19 +66,26 @@
 
 .post_info {
 	background-color: white;
+	margin-right: 20px;
 }
 
 .post_info h1{
 	text-align: center;
-	font-size: 4vw;
+	width: 60%;
+	font-size: 3vw;
+	font-weight: bold;
+	font-family: "Futura";
 	margin-bottom: 0px;
 	margin-left: -1vw;
+	margin: auto;
+
 }
 
 .tags_on_show{
 	text-align: center;
 	font-size: 1.3vw;
 	margin-top: 5px;
+	margin: auto;
 	margin-left: -1vw;
 }
 
@@ -104,8 +112,8 @@
 	font-size: 1.3vw;
 }
 
-.show_post_text.one:first-line {
-	font-weight:bold;
+.show_post_body {
+	white-space: pre-line;
 }
 
 .paginate_links{
@@ -132,4 +140,22 @@
 
 #source-button:hover{
 	opactiy: .3;
+}
+
+.no-posts-div {
+	margin: auto;
+	width: 70%;
+}
+
+.no-posts-div h5 {
+	text-align: center;
+	font-size: 2vw;
+}
+
+#show-title-source-link {
+	color: black;
+}
+
+#show-title-source-link:hover {
+	opacity: .8;
 }

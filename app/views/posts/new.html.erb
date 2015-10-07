@@ -1,5 +1,6 @@
 <div class = "container">
-	<h2 style = "text-align:center; margin-right: 2vw;"> New Post </h2>
+	<h2 style = "text-align:center; margin-right: 2vw; color: black; font-family: 'Futura';"> New Post </h2>
 		<%= render 'form'%>
-		<%= link_to 'Back', posts_path%>
+		<br>
+  	  	<%= link_to "Back", posts_path, id: "back-button", class: "waves-effect waves-light btn"%>
 </div>

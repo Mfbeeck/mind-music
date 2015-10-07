@@ -8,6 +8,7 @@
   height: auto;
   margin-bottom: 12px;
   border: none;
+  z-index: 0;
 } 
 
 .youtube-embed-container iframe,
@@ -18,4 +19,5 @@
   width: 100%;
   height: 100%;
   border: none;
+  z-index: 0;
 }

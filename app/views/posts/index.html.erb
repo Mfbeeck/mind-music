@@ -10,7 +10,7 @@
 		    <li>
 				<%= link_to post.title.capitalize, post_path(post), class: 'post-title-link'%>
 		    </li>
-		    <li style = "font-size: 1vw;">
+		    <li style = "font-size: 1.4vw;">
 		    	<%=post.created_at.strftime('%b %d, %Y')%>
 	    	</li>
 		    <li>
@@ -35,7 +35,7 @@
 				<%if post.body.length > 100%>	    		   
 			    <li class = "body_excerpt">
 			    	<br>
-						<%= post.body.truncate_words(50)%><%=link_to "see more >>", post_path(post), class: 'post_more_link'%>
+						<%= post.body.truncate_words(100)%><%=link_to "see more >>", post_path(post), class: 'post_more_link'%>
 			    </li>
 			    <%else%>
 			    <li class = "small_body_excerpt">

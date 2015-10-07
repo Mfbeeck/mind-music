@@ -1,0 +1,25 @@
+#user li, h1{
+	color: black;
+}
+
+#user-info{
+	color: black;
+}
+
+#user-info a:hover{
+	opacity: .7;
+}
+
+.click-table{
+	color:black;
+	width: 60%;
+    border: 1px solid black;
+}
+
+.click-table tr td {
+   border: 1px solid black;
+}
+
+.click-table a:hover {
+	opacity: .7;
+}

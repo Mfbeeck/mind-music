@@ -3,9 +3,78 @@
 }
 
 .navigation {
-	background-color: #0099CA;
+	background-color: #019BE5;
 }
 
 .brand-logo{
 	margin-left: 15px;
+}
+
+#hamburger-button{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#hamburger-button:hover{
+	background-color: rgba(39, 131, 253, .8);
+    transition: background-color .7s;
+
+}
+
+#logo{
+	margin-left: 3px;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-top: 12px;
+	padding-bottom: 12px; 
+	font-size: 2em;
+	font-family: "Futura";
+}
+
+#logo:hover {
+	background-color: rgba(39, 131, 253, .8);
+    transition: background-color .7s;
+}
+
+#newpost{
+	margin-left: 360px;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-top: 12px;
+	padding-bottom: 12px; 
+	font-size: 2em;
+	font-family: "Futura";
+}
+
+#newpost:hover {
+	background-color: rgba(39, 131, 253, .8);
+    transition: background-color .7s;
+
+}
+
+#navdivider{
+	margin-left: 3px;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-top: 0px;
+	padding-bottom: 0px; 
+	font-size: 2em;
+	font-family: "Futura";
+}
+
+
+#usernav{
+	margin-bottom: 10px;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-top: 0px;
+	padding-bottom: 0px; 
+	font-size: 2em;
+	font-family: "Futura";
+}
+
+#usernav:hover {
+	background-color: rgba(39, 131, 253, .8);
+    transition: background-color .7s;
+
 }

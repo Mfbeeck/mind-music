@@ -5,11 +5,11 @@ class UsersController < ApplicationController
 
   def index
   	@users = User.all
-	end
+  end
 
   def new
   	@user = User.new
-	end
+  end
   
   def create 
   	@user = User.new(user_params) 
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   	else 
     	redirect_to '/signup' 
   	end 
-	end
+  end
 
 	def update
 		@user = User.find(params[:id])
@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = current_user
+		@posts = current_user.posts.order('countclicks DESC')
 	end
 
 	def edit
