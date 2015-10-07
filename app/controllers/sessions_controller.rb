@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
 		    redirect_to root_path
 		  else
 		    redirect_to '/login'
+		    flash.notice = "An error occurred upon login. Try again!"
 		  end 
 	end
 
