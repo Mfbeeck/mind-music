@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     	redirect_to '/' 
   	else 
     	redirect_to '/signup' 
-    	flash.notice = "You do not have the authority to create a user!"
+    	flash.notice = "You are missing info!"
   	end 
   end
 

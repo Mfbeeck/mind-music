@@ -59,7 +59,7 @@
 		    <br>
 		    <li>
 	    		<% if post.user_id %>
-						<%= post.user.first_name.capitalize + ' ' + post.user.last_name.capitalize%> 
+						<%= post.user.first_name.capitalize + ' '%> 
 				<%end%>
 				<% if post.tags.exists?%>
 					on 
