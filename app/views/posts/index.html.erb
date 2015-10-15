@@ -8,7 +8,7 @@
 		<div class = "individual_post">
 			<ul id="post">
 		    <li>
-				<%= link_to post.title.capitalize, post_path(post), class: 'post-title-link'%>
+				<%= link_to post.title.titleize, post_path(post), class: 'post-title-link'%>
 		    </li>
 		    <li style = "font-size: 1.4vw;">
 		    	<%=post.created_at.strftime('%b %d, %Y')%>

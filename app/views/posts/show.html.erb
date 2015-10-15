@@ -1,7 +1,7 @@
 <div class = "post_show">
 	<div class = "post_info">
 		<br>
-		<h1><%= link_to @post.title.capitalize, @post.sourceurl, id: "show-title-source-link" %></h1>
+		<h1><%= @post.title.titleize%></h1>
 		<br>
 		<p class = "tags_on_show">
 		<%=@post.created_at.strftime('%b %d, %Y')%>
@@ -51,7 +51,7 @@
 		  <br>
   	  	  <%= link_to "Back", posts_path, id: "back-button", class: "waves-effect waves-light btn"%>
 		  <% if !@post.sourceurl.nil? && @post.sourceurl.length > 0 %>
-		  <%= link_to "View Source", @post.sourceurl, id: "source-button", class: "waves-effect waves-light btn"%>
+		  	<%= link_to "View Source", @post.sourceurl, id: "source-button", :target => "_blank", class: "waves-effect waves-light btn"%>
 		  <%end%>
 		  </ul>
   </div>
