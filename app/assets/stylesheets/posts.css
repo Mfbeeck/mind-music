@@ -47,6 +47,8 @@
 	font-size: 2.8vw;
 	font-family: "Futura";
 	font-weight: normal;
+	white-space: pre-line;
+
 }
 
 .post-title-link:hover {
