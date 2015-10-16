@@ -20,7 +20,7 @@
 	font-size: 1.5vw;
 	text-align: center;
 	margin: auto;
-	border-bottom: solid gray 1px;
+	border-bottom: dashed #C2C7C8 1px;
 }
 
 .img_index {
