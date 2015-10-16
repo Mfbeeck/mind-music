@@ -7,44 +7,62 @@
 		<div class = "container">
 		<div class = "individual_post">
 			<ul id="post">
-		    <li style = "width: 70%; margin: auto;">
+		    <li class = "title_excerpt">
 				<%= link_to post.title, post_path(post), class: 'post-title-link'%>
 		    </li>
-		    <li style = "font-size: 1.4vw;">
+		    <li class = "title_excerpt" style = "font-size: 1.15vw;">
 		    	<%=post.created_at.strftime('%b %d, %Y')%>
 	    	</li>
-		    <li>
+<!-- 		    <li>
 		    <br>
-	  	  	<% if !post.youtube_url.nil? && post.youtube_url.length > 0%>
+	  	  	<%# if !post.youtube_url.nil? && post.youtube_url.length > 0%>
 		  	  	<div class="youtube-embed-container">  
-							<%= embed(post.youtube_url) %>
-						</div>
-		    	<%elsif post.image.exists?%>
-			    	<%= link_to image_tag(post.image.url), post_path(post)%>
-		    	<%else%>	
-			    	<%= link_to image_tag(post.url, class: "img_index"), post_path(post) %>
-		    	<%end%>
-	    	</li>	    
+							<%#= embed(post.youtube_url) %>
+				</div>
+		    	<%#elsif post.image.exists?%>
+			    	<%#= link_to image_tag(post.image.url), post_path(post)%>
+		    	<%#else%>	
+			    	<%#= link_to image_tag(post.url, class: "img_index"), post_path(post) %>
+		    	<%#end%>
+	    	</li> -->
+	  	  	<% if !post.youtube_url.nil? && post.youtube_url.length > 0%>
+	  	  	<li class = "youtube-li">
+	  	  		<br>
+		  	  	<div class="youtube-index-embed-container">  
+					<%= embed(post.youtube_url) %>
+				</div>
+			</li>
+			<%end%>
+
 		  	<% if post.embed.length > 0 %>
-		    	<li>
-			    	<div style = "width: 50%; margin: auto;">
-							<iframe width="90%" height="126" scrolling="no" frameborder="no" src="<%=post.embed%>"></iframe>
-					</div>
+		  	<br>
+		    	<li class = "title_excerpt">
+					<iframe width="60%" height="126" scrolling="no" frameborder="no" src="<%=post.embed%>"></iframe>
 		    	</li>
 				<%end%>
 				<%if post.body.length > 100%>	    		   
 			    <li class = "body_excerpt">
 			    	<br>
+			    	<%if post.embed.length > 0%>
+			    		<strong>Music: </strong>
+			    	<%else%>
+			    		<strong>Mind: </strong>
+		    		<%end%>
 						<%= post.body.truncate_words(100)%><%=link_to "see more >>", post_path(post), class: 'post_more_link'%>
 			    </li>
 			    <%else%>
 			    <li class = "small_body_excerpt">
 			    	<br>
+			    	<%if post.embed.length > 0%>
+			    		<strong>Music: </strong>
+			    	<%else%>
+			    		<strong>Mind: </strong>
+		    		<%end%>
 			    	<%=post.body%>
 			    </li>
 		    <%end%>
 		    <br>
-		    <li>
+		    <li class = "title_excerpt" style = "font-size: 1.3vw;">
 	    		<% if post.user_id %>
 						<%= post.user.first_name.capitalize + ' '%> 
 				<%end%>
@@ -57,7 +75,6 @@
 			Clicks: <%=post.countclicks %> | Rating: <%=post.rating%>
 			<%end%>
 		    </li>
-		    <li>
 		  </ul>
 	  </div>
 	  </div>

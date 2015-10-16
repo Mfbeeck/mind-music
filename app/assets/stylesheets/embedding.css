@@ -1,6 +1,5 @@
 .youtube-embed-container {
 	position: relative;
-	margin: auto;
   padding-bottom: 33%;
   padding-top: 10px;
   height: 0;
@@ -18,6 +17,35 @@
   top: 0; left: 0;
   width: 100%;
   height: 100%;
+  border: none;
+  z-index: 0;
+}
+
+/*INDEX YOUTUBE CONTAINER*/
+
+.youtube-li{
+  margin-bottom: -70px;
+}
+
+.youtube-index-embed-container {
+  position: relative;
+  padding-bottom: 33%;
+  padding-top: 10px;
+  height: 0;
+  width: 60%;
+  height: auto;
+  margin-bottom: 12px;
+  border: none;
+  z-index: 0;
+} 
+
+.youtube-index-embed-container iframe,
+.youtube-index-embed-container object,
+.youtube-index-embed-container embed {
+  position: absolute;
+  top: 0; left: 0;
+  width: 80%;
+  height: 80%;
   border: none;
   z-index: 0;
 }
