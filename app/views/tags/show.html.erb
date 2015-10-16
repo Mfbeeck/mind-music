@@ -1,11 +1,14 @@
 <div class = "all_posts">
 	<div class = "header">
-      <% if $types_of_posts.include?(@tag.name) %>
-      <h1><%= @tag.name.capitalize %> </h1>
-      <%else%>
-		<h1>Posts Tagged with "<%= @tag.name %>"</h1>
-	  <%end%>
-		<hr>
+	<br>
+	<% if $types_of_posts.include?(@tag.name) %>
+		<h1 style = "color: #A5AAAC; padding-left: 13px; font-weight: bold; background-color: white; padding-top: 5px; margin: auto; border-radius: 4px; width: 40%"><%= @tag.name.capitalize %></h1>
+		<br>
+  	<%else%>
+		<h1 style = "color: #A5AAAC; padding-left: 13px; font-weight: bold; background-color: white; padding-top: 5px; margin: auto; border-radius: 4px; width: 70%">Posts Tagged with "<%= @tag.name %>"</h1>
+		<br>
+  	<%end%>
+		<br>
 	</div>
 	<% if @tag.posts.count < 1 %>
 		<div class = "no-posts-div">

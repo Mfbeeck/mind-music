@@ -1,10 +1,11 @@
 <div class = "all_posts">
 	<div class = "header" >
 	<br>
-		<h1 style = "color: white; background-color: #C2C7C8; padding-top: 5px; padding-bottom: 5px; margin: auto; border-radius: 4px; width: 35%">Mind & Music</h1>
+		<h1 style = "color: #A5AAAC; padding-left: 13px; font-weight: bold; background-color: white; padding-top: 5px; margin: auto; border-radius: 4px; width: 40%">Mind & Music</h1>
+		<br>
+	<!-- 	<h1 style = "font-size: .6vw; font-weight: bold; color: #A5AAAC; margin: auto; border-radius: 4px; width: 35%">O O O O O</h1> -->
 		<br>
 	</div>	
-	<br>
 	<% @posts.each do |post| %>
 		<div class = "container">
 		<div class = "individual_post">
@@ -12,7 +13,7 @@
 		    <li class = "title_excerpt">
 				<%= link_to post.title, post_path(post), class: 'post-title-link'%>
 		    </li>
-		    <li class = "title_excerpt" style = "font-size: 1.15vw;">
+		    <li class = "title_excerpt" style = "color: #A5AAAC; font-size: 1.15vw;">
 		    	<%=post.created_at.strftime('%b %d, %Y')%>
 	    	</li>
 <!-- 		    <li>
@@ -80,9 +81,8 @@
 		  </ul>
 	  </div>
 	  </div>
-	  <br>
 	<% end %>
-
+	<br>
 	<span class = "paginate_links"><%= will_paginate @posts %></span>
 
 	<!-- Creating links to dates -->

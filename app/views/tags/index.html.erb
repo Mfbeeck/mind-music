@@ -1,5 +1,10 @@
 <div class = "all_posts">
-	<h1 style = "text-align: center; font-size: 4vw; font-family: 'Futura'">All Tags</h1>
+	<div class = "header" >
+	<br>
+		<h1 style = "color: #A5AAAC; padding-left: 13px; font-weight: bold; background-color: white; padding-top: 5px; margin: auto; border-radius: 4px; width: 40%">All Tags</h1>
+		<br>
+		<br>
+	</div>	
 	<div class = "container" id = "tags-list">
 	  <% @tags.each do |tag| %>
 		<% tag_frequency = tag.taggings.count %>
