@@ -7,7 +7,7 @@
 		<div class = "container">
 		<div class = "individual_post">
 			<ul id="post">
-		    <li>
+		    <li style = "width: 70%; margin: auto;">
 				<%= link_to post.title, post_path(post), class: 'post-title-link'%>
 		    </li>
 		    <li style = "font-size: 1.4vw;">
@@ -28,7 +28,7 @@
 		  	<% if post.embed.length > 0 %>
 		    	<li>
 			    	<div style = "width: 50%; margin: auto;">
-							<iframe width="100%" height="166" scrolling="no" frameborder="no" src="<%=post.embed%>"></iframe>
+							<iframe width="90%" height="126" scrolling="no" frameborder="no" src="<%=post.embed%>"></iframe>
 					</div>
 		    	</li>
 				<%end%>
@@ -54,8 +54,9 @@
 				<%end%>
 			<br>
 			<%if current_user && current_user.admin %>
-			Clicks: <%=post.countclicks %> | Rating: <%=post.rating%>
+			Clicks: <%=post.countclicks %> |
 			<%end%>
+			Rating: <%=post.rating%>/10
 		    </li>
 		    <li>
 		  </ul>

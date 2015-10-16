@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 	end
 
 	def favorite
-		@posts = Post.all.order('rating DESC').first(5)
+		@posts = Post.where('rating is not null').order('rating DESC').first(5)
 		@favorite_page = true
 	end
 
@@ -37,6 +37,7 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(post_params)
 		@post.user_id = current_user.id
+		@post.countclicks = 0
 		@post.save
 		redirect_to posts_path
 		flash.notice = "The post \"#{@post.title}\" was successfully created."
