@@ -1,3 +1,8 @@
+/*.nav{
+	position:fixed;
+	margin-top: -20px;
+} THIS PREVENTS THE POPOUT NAV FROM WORKING*/
+
 #dropdown1 {
 	margin-top: 65px;
 }

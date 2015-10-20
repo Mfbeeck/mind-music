@@ -8,6 +8,8 @@
 .all_posts {
 	background-color: white;
 	margin-left: -1.3vw;
+/*    max-height: 400px;
+    overflow-y: scroll;*/
 }
 
 .all_posts h1 {
