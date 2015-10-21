@@ -7,10 +7,22 @@
 
 .all_posts {
 	background-color: white;
-	margin-left: -1.3vw;
+	margin-left: -1.0vw;
 /*    max-height: 800px;
     overflow-y: scroll;*/
+
 }
+
+/* Messing with corner border styling
+.flash {
+	padding: 30px;
+	border-right: dashed #C2C7C8 2px;
+	border-top: dashed #C2C7C8 2px;
+	width: 2px;
+	float:right;
+	margin-right: 220px;
+}*/
+
 
 .all_posts h1 {
 	text-align: center;
