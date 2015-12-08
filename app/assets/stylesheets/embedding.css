@@ -21,6 +21,31 @@
   z-index: 0;
 }
 
+.youtube-show-embed-container {
+  position: relative;
+  padding-bottom: 33%;
+  padding-top: 10px;
+  height: 0;
+  width: 60%;
+  height: auto;
+  margin-bottom: 12px;
+  border: none;
+  z-index: 0;
+    margin: auto;
+
+} 
+
+.youtube-show-embed-container iframe,
+.youtube-show-embed-container object,
+.youtube-show-embed-container embed {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  z-index: 0;
+}
+
 /*INDEX YOUTUBE CONTAINER*/
 
 .youtube-li{

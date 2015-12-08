@@ -20,9 +20,9 @@
 			<!-- if youtube url exists, show video, if image exists show image, if not then show image through url. Basically there will always be either an image uploaded or a url. If there is an image uploaded, show that one no matter what -->
 		    <li>
   	  		<% if !@post.youtube_url.nil? && @post.youtube_url.length > 0%>
-	    	  	<div class="youtube-embed-container">  
+	    	  	<div class="youtube-show-embed-container">  
 							<%= embed(@post.youtube_url) %>
-						</div>
+				</div>
 		    	<%elsif @post.image.exists?%>
 		    		<%= image_tag @post.image.url(:medium) %>
 		    	<%else%>	
